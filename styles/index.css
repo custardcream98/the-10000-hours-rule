@@ -94,7 +94,7 @@ h1 .logo {
   height: 57px;
 }
 
-/* .howmuch-form__txt input, */
+.howmuch-form__txt input,
 .howmuch-form__txt input::placeholder {
   color: #5b2386;
   text-align: center;
