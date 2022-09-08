@@ -1,0 +1,27 @@
+@font-face {
+  font-family: "Noto Sans KR";
+  src: url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GmarketSans";
+  src: url("./font/GmarketSansLight.otf") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GmarketSans";
+  src: url("./font/GmarketSansMedium.otf") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GmarketSans";
+  src: url("./font/GmarketSansBold.otf") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}

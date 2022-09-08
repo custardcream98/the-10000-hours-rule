@@ -1,0 +1,203 @@
+@import url("reset.css");
+@import url("webfont.css");
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.blind {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+}
+
+.img-flow-root {
+  display: flow-root;
+}
+
+body {
+  background-color: #5b2386;
+  color: white;
+  font-weight: 400;
+  font-family: "GmarketSansMedium";
+}
+
+h1 {
+  height: 265px;
+  position: relative;
+  box-sizing: border-box;
+  margin: auto;
+  margin-top: 125px;
+}
+
+.centering {
+  margin: 0 auto;
+}
+
+.text-centering {
+  text-align: center;
+}
+
+h1 .logo {
+  position: absolute;
+  top: 76.5px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.img-quote {
+  margin-top: 50px;
+}
+
+.txt-quote {
+  height: 85px;
+  width: 493px;
+  margin-top: 85px;
+  line-height: 31px;
+  font-size: 18px;
+  background-image: url("./images/quote.png");
+  background-repeat: no-repeat;
+  background-position: center top 13px;
+}
+
+.txt-quote strong {
+  line-height: 24px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.howmuch-form {
+  margin-top: 78px;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.howmuch-form__txt + .howmuch-form__txt {
+  margin-top: 27px;
+}
+
+.howmuch-form__txt input {
+  display: inline-block;
+  vertical-align: middle;
+  border: none;
+  border-radius: 7px;
+  margin: 0 17px;
+  width: 228px;
+  height: 57px;
+}
+
+/* .howmuch-form__txt input, */
+.howmuch-form__txt input::placeholder {
+  color: #5b2386;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 400;
+  font-family: "GmarketSansMedium";
+}
+
+.howmuch-form__txt input::placeholder {
+  color: #babcbe;
+}
+
+.submit-btn-wrapper {
+  margin-top: 115px;
+}
+
+.submit-btn-wrapper .click-icon {
+  position: absolute;
+  margin-left: 7px;
+  margin-top: 14px;
+}
+
+.white-btn,
+.yellow-btn {
+  padding: 21px 49px;
+  color: #5b2386;
+  background-color: #fcee21;
+  border: none;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: "GmarketSansMedium";
+  border-radius: 56px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.white-btn {
+  background-color: white;
+}
+
+a.yellow-btn {
+  display: inline-block;
+}
+
+.result {
+  margin-top: 147px;
+  margin-bottom: 130px;
+}
+
+.txt-result {
+  font-size: 24px;
+}
+
+.txt-result + .txt-result {
+  margin-top: 17px;
+}
+
+.txt-result strong {
+  display: inline-block;
+  margin: 0 12px;
+  font-size: 72px;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+.do-more {
+  margin-top: 127px;
+  text-align: center;
+}
+
+.share-link {
+  margin-left: 18px;
+}
+
+footer small.txt-footer {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 80px;
+  text-align: center;
+  font-size: 12px;
+  font-family: "Noto Sans KR";
+}
+
+.cheerup-modal {
+  width: 800px;
+  height: 800px;
+  margin-bottom: 100px;
+  padding-top: 85px;
+  box-sizing: border-box;
+  text-align: center;
+  color: #5b2386;
+  background: #ffffff;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  border-radius: 30px;
+}
+
+.cheerup-modal .yellow-btn {
+  margin-top: 74px;
+}
+
+.cheerup-modal .cheerup-comments img + img {
+  margin-top: 30px;
+}
+
+.cheerup-modal .cheerup-comments {
+  margin-bottom: 34px;
+}
