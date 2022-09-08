@@ -28,6 +28,14 @@ button {
   display: flow-root;
 }
 
+.centering {
+  margin: 0 auto;
+}
+
+.text-centering {
+  text-align: center;
+}
+
 body {
   background-color: var(--main-color);
   color: white;
@@ -36,22 +44,10 @@ body {
 }
 
 h1 {
-  height: 265px;
   position: relative;
   box-sizing: border-box;
   margin: auto;
   margin-top: 120px;
-}
-.test {
-  width: 100px;
-}
-
-.centering {
-  margin: 0 auto;
-}
-
-.text-centering {
-  text-align: center;
 }
 
 h1 .title {
@@ -64,23 +60,41 @@ h1 .title {
   bottom: 0;
 }
 
-.img-quote {
-  margin-top: 50px;
+@media (max-width: 780px) {
+  h1 {
+    margin-top: 41px;
+  }
+  h1 .title {
+    top: 36.5px;
+    width: 267px;
+    height: 53px;
+  }
+  h1 .title-background {
+    width: 125px;
+    height: 126px;
+  }
 }
 
 .wisdom-quote {
   margin-top: 66px;
   font-family: "OTEnjoystoriesBA";
   color: var(--main-yellow);
-  font-size: 2.25em;
+  font-size: 2.25rem;
   font-weight: 700;
+}
+
+@media (max-width: 780px) {
+  .wisdom-quote {
+    margin-top: 31px;
+    font-size: 1.375rem;
+  }
 }
 
 .rule-definition {
   height: 85px;
   width: 493px;
   margin-top: 78px;
-  line-height: 31px;
+  line-height: 1.9375rem;
   font-size: 1.125em;
   background-image: url("../img/quotes.png");
   background-repeat: no-repeat;
@@ -88,10 +102,28 @@ h1 .title {
   background-size: contain;
 }
 
-.rule-definition strong {
+.rule-definition dfn {
   line-height: 24px;
   font-size: 1.5em;
   font-weight: bold;
+}
+
+@media (max-width: 780px) {
+  .rule-definition {
+    height: 68px;
+    width: 290px;
+    margin-top: 62px;
+    font-size: 0.875rem;
+    line-height: 1.8rem;
+    background-image: url("../img/quotes_mobile.png");
+    background-size: 302px;
+    background-position: center top 24px;
+    /* 추후 수정 필요 */
+  }
+  .rule-definition dfn {
+    font-size: 1rem;
+    line-height: 16px;
+  }
 }
 
 .howmuch-form {
@@ -127,6 +159,24 @@ h1 .title {
   color: var(--main-gray);
 }
 
+@media (max-width: 780px) {
+  .howmuch-form {
+    font-size: 0.875rem;
+  }
+  .howmuch-form__txt input {
+    margin: 0 4px;
+    width: 156px;
+    height: 37px;
+  }
+  .howmuch-form__txt + .howmuch-form__txt {
+    margin-top: 17px;
+  }
+  .howmuch-form__txt + .howmuch-form__txt span {
+    display: block;
+    margin-bottom: 19px;
+  }
+}
+
 .submit-btn-wrapper {
   margin-top: 115px;
 }
@@ -150,6 +200,34 @@ h1 .title {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
+@media (max-width: 780px) {
+  .white-btn,
+  .yellow-btn {
+    padding: 13.5px 17.5px 12.5px 17.5px;
+    font-size: 0.875rem;
+  }
+  .mobile-square-btn {
+    border-radius: 13px;
+    padding: 19px 36.5px 17px 36.5px;
+    width: 241px;
+    box-sizing: border-box;
+  }
+  .mobile-square-btn span {
+    display: inline-block;
+    line-height: 18px;
+  }
+  .submit-btn-wrapper {
+    margin-top: 49px;
+    margin-left: 56px;
+    margin-right: 63px;
+  }
+  .submit-btn-wrapper .click-icon {
+    position: absolute;
+    margin-left: 6px;
+    margin-top: 30px;
+  }
+}
+
 .white-btn {
   background-color: white;
 }
@@ -161,7 +239,7 @@ a.yellow-btn {
 .result {
   margin-top: 147px;
   margin-bottom: 130px;
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 
 .txt-result + .txt-result {
@@ -185,14 +263,42 @@ a.yellow-btn {
   margin-left: 18px;
 }
 
+@media (max-width: 780px) {
+  .result {
+    margin-top: 64px;
+    margin-bottom: 83px;
+    font-size: 0.875rem;
+  }
+  .txt-result + .txt-result {
+    margin-top: 15px;
+  }
+  .txt-result strong {
+    margin: 0 8px;
+    font-size: 1.5rem;
+  }
+  .do-more {
+    margin-top: 55px;
+  }
+}
+
 footer small.txt-footer {
   display: block;
   margin-top: 20px;
-  margin-bottom: 80px;
+  margin-bottom: 70px;
   text-align: center;
   font-size: 0.75rem;
   font-family: "Noto Sans KR";
   line-height: 17px;
+}
+
+@media (max-width: 780px) {
+  footer small.txt-footer {
+    margin-top: 20px;
+    margin-bottom: 32px;
+    font-size: 0.5625rem;
+    line-height: 0.8125rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
 }
 
 .cheerup-modal {
@@ -201,6 +307,7 @@ footer small.txt-footer {
   min-height: 800px;
   margin-bottom: 100px;
   padding-top: 76px;
+  padding-bottom: 68px;
   box-sizing: border-box;
   text-align: center;
   color: var(--main-color);
@@ -224,12 +331,53 @@ footer small.txt-footer {
   line-height: 106px;
 }
 
-.cheerup-modal .cheerup-comments span {
+.cheerup-modal .cheerup-comments span:not(.hide-heart) {
   display: block;
   margin-top: 7px;
   line-height: 40px;
 }
+.licat-cheering {
+  margin: auto;
+}
 
 .cheerup-modal .cheerup-comments {
   margin-bottom: 29px;
+}
+
+@media (max-width: 780px) {
+  .cheerup-modal {
+    display: inline-block;
+    min-width: 330px;
+    min-height: 500px;
+    margin-bottom: 100px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .cheerup-modal .yellow-btn {
+    margin-top: 74px;
+    width: 241px;
+    padding: 19px 45px 17px 45px;
+  }
+  .cheerup-modal .cheerup-comments {
+    font-size: 2.25rem;
+  }
+  .cheerup-modal .cheerup-comments strong {
+    font-size: 4rem;
+    line-height: 70px;
+  }
+  .cheerup-modal .cheerup-comments span {
+    margin-top: -4px;
+  }
+  .licat-cheering {
+    width: 259.8px;
+    height: 202.2px;
+  }
+  .hide-mobile {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+  }
 }
