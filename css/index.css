@@ -388,15 +388,37 @@ footer small.txt-footer {
   }
 }
 
-.blur-background {
+@keyframes modalOpen {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes modalClose {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+#modal-wrapper {
+  display: none;
   position: fixed;
   top: 0;
   width: 100vw;
   height: 100vh;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  opacity: 0;
+  animation: modalClose 0.4s;
 }
 
-.modal-wrapper {
-  display: none;
+#modal-wrapper.activated {
+  opacity: 1;
+  animation: modalOpen 0.4s;
 }
