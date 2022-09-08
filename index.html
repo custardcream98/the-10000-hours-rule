@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="./img/favicon.ico" />
     <link rel="stylesheet" href="./css/index.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>1만 시간의 법칙</title>
   </head>
   <body>
@@ -33,14 +34,21 @@
         <dfn>1만 시간의 법칙</dfn>은<br />어떤 분야의 전문가가 되기 위해서는<br />
         최소한 1만 시간의 훈련이 필요하다는 법칙이다.
       </blockquote>
-      <form class="howmuch-form text-centering" action="">
+      <form id="target-form" class="howmuch-form text-centering" action="">
         <p class="howmuch-form__txt">
-          나는<input type="text" placeholder="예)프로그래밍" />전문가가 될
-          것이다.
+          나는<input
+            id="target"
+            type="text"
+            placeholder="예)프로그래밍"
+          />전문가가 될 것이다.
         </p>
         <p class="howmuch-form__txt">
           <span>그래서 앞으로 매일 하루에</span
-          ><input type="text" placeholder="예)5시간" />시간씩 훈련할 것이다.
+          ><input
+            id="hours-for-target"
+            type="text"
+            placeholder="예)5시간"
+          />시간씩 훈련할 것이다.
         </p>
         <div class="submit-btn-wrapper">
           <button class="yellow-btn mobile-square-btn">
@@ -58,13 +66,16 @@
       <section class="result">
         <h2 class="blind">결과 확인</h2>
         <p class="txt-result text-centering">
-          당신은<strong>프로그래밍</strong>전문가가 되기 위해서
+          당신은<strong id="target-result">프로그래밍</strong>전문가가 되기
+          위해서
         </p>
         <p class="txt-result text-centering">
-          대략<strong>5110</strong>일 이상 훈련하셔야 합니다! :)
+          대략<strong id="days-for-target">5110</strong>일 이상 훈련하셔야
+          합니다! :)
         </p>
         <div class="do-more">
-          <a class="yellow-btn" href="">훈련하러 가기 GO!GO!</a
+          <button id="modal-opener" class="yellow-btn" type="button">
+            훈련하러 가기 GO!GO!</button
           ><a class="white-btn share-link" href="">공유하기</a>
         </div>
       </section>
@@ -84,19 +95,23 @@
       >
     </footer>
     <!-- Cheerup Modal -->
-    <section class="cheerup-modal">
-      <h2 class="blind">응원 팝업창</h2>
-      <p class="cheerup-comments">
-        <strong>화이팅!!<span class="hide-heart">♥♥♥</span></strong>
-        <span>당신의 꿈을 응원합니다!</span>
-      </p>
-      <img
-        class="img-flow-root centering licat-cheering"
-        src="./img/licat.png"
-        alt="응원하는 라이캣"
-      /><a class="yellow-btn centering mobile-square-btn" href=""
-        ><span>종료하고 진짜</span> <span>훈련하러 가기 GO!GO!</span></a
-      >
-    </section>
+    <div class="modal-wrapper">
+      <div class="blur-background"></div>
+      <section class="cheerup-modal">
+        <h2 class="blind">응원 팝업창</h2>
+        <p class="cheerup-comments">
+          <strong>화이팅!!<span class="hide-heart">♥♥♥</span></strong>
+          <span>당신의 꿈을 응원합니다!</span>
+        </p>
+        <img
+          class="img-flow-root centering licat-cheering"
+          src="./img/licat.png"
+          alt="응원하는 라이캣"
+        /><a class="yellow-btn centering mobile-square-btn" href=""
+          ><span>종료하고 진짜</span> <span>훈련하러 가기 GO!GO!</span></a
+        >
+      </section>
+    </div>
+    <script src="./js/10000hours.js"></script>
   </body>
 </html>

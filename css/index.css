@@ -147,6 +147,10 @@ h1 .title {
   color: var(--main-color);
 }
 
+.howmuch-form__txt input:focus {
+  outline: none;
+}
+
 .howmuch-form__txt input,
 .howmuch-form__txt input::placeholder {
   text-align: center;
@@ -302,7 +306,10 @@ footer small.txt-footer {
 }
 
 .cheerup-modal {
-  display: inline-block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
   min-width: 800px;
   min-height: 800px;
   margin-bottom: 100px;
@@ -311,7 +318,7 @@ footer small.txt-footer {
   box-sizing: border-box;
   text-align: center;
   color: var(--main-color);
-  background: #ffffff;
+  background-color: #ffffff;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
   border-radius: 30px;
 }
@@ -346,7 +353,6 @@ footer small.txt-footer {
 
 @media (max-width: 780px) {
   .cheerup-modal {
-    display: inline-block;
     min-width: 330px;
     min-height: 500px;
     margin-bottom: 100px;
@@ -380,4 +386,17 @@ footer small.txt-footer {
     margin: -1px;
     overflow: hidden;
   }
+}
+
+.blur-background {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.modal-wrapper {
+  display: none;
 }
