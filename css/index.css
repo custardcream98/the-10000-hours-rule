@@ -1,5 +1,11 @@
 @import url("reset.css");
-@import url("webfont.css");
+@import url("font.css");
+
+:root {
+  --main-color: #5b2386;
+  --main-gray: #babcbe;
+  --main-yellow: #fcee21;
+}
 
 a {
   text-decoration: none;
@@ -23,7 +29,7 @@ button {
 }
 
 body {
-  background-color: #5b2386;
+  background-color: var(--main-color);
   color: white;
   font-weight: 400;
   font-family: "GmarketSansMedium";
@@ -34,7 +40,10 @@ h1 {
   position: relative;
   box-sizing: border-box;
   margin: auto;
-  margin-top: 125px;
+  margin-top: 120px;
+}
+.test {
+  width: 100px;
 }
 
 .centering {
@@ -45,7 +54,9 @@ h1 {
   text-align: center;
 }
 
-h1 .logo {
+h1 .title {
+  width: 564px;
+  height: 112px;
   position: absolute;
   top: 76.5px;
   left: 0;
@@ -57,26 +68,35 @@ h1 .logo {
   margin-top: 50px;
 }
 
-.txt-quote {
-  height: 85px;
-  width: 493px;
-  margin-top: 85px;
-  line-height: 31px;
-  font-size: 18px;
-  background-image: url("./images/quote.png");
-  background-repeat: no-repeat;
-  background-position: center top 13px;
+.wisdom-quote {
+  margin-top: 66px;
+  font-family: "OTEnjoystoriesBA";
+  color: var(--main-yellow);
+  font-size: 2.25em;
+  font-weight: 700;
 }
 
-.txt-quote strong {
+.rule-definition {
+  height: 85px;
+  width: 493px;
+  margin-top: 78px;
+  line-height: 31px;
+  font-size: 1.125em;
+  background-image: url("../img/quotes.png");
+  background-repeat: no-repeat;
+  background-position: center top 13px;
+  background-size: contain;
+}
+
+.rule-definition strong {
   line-height: 24px;
-  font-size: 24px;
+  font-size: 1.5em;
   font-weight: bold;
 }
 
 .howmuch-form {
   margin-top: 78px;
-  font-size: 24px;
+  font-size: 1.5em;
   font-weight: 400;
 }
 
@@ -92,19 +112,19 @@ h1 .logo {
   margin: 0 17px;
   width: 228px;
   height: 57px;
+  color: var(--main-color);
 }
 
 .howmuch-form__txt input,
 .howmuch-form__txt input::placeholder {
-  color: #5b2386;
   text-align: center;
-  font-size: 24px;
+  font-size: 1em;
   font-weight: 400;
   font-family: "GmarketSansMedium";
 }
 
 .howmuch-form__txt input::placeholder {
-  color: #babcbe;
+  color: var(--main-gray);
 }
 
 .submit-btn-wrapper {
@@ -120,10 +140,10 @@ h1 .logo {
 .white-btn,
 .yellow-btn {
   padding: 21px 49px;
-  color: #5b2386;
-  background-color: #fcee21;
+  color: var(--main-color);
+  background-color: var(--main-yellow);
   border: none;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: bold;
   font-family: "GmarketSansMedium";
   border-radius: 56px;
@@ -141,10 +161,7 @@ a.yellow-btn {
 .result {
   margin-top: 147px;
   margin-bottom: 130px;
-}
-
-.txt-result {
-  font-size: 24px;
+  font-size: 1.5em;
 }
 
 .txt-result + .txt-result {
@@ -154,7 +171,7 @@ a.yellow-btn {
 .txt-result strong {
   display: inline-block;
   margin: 0 12px;
-  font-size: 72px;
+  font-size: 4.5rem;
   font-weight: bold;
   vertical-align: middle;
 }
@@ -173,18 +190,20 @@ footer small.txt-footer {
   margin-top: 20px;
   margin-bottom: 80px;
   text-align: center;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-family: "Noto Sans KR";
+  line-height: 17px;
 }
 
 .cheerup-modal {
-  width: 800px;
-  height: 800px;
+  display: inline-block;
+  min-width: 800px;
+  min-height: 800px;
   margin-bottom: 100px;
-  padding-top: 85px;
+  padding-top: 76px;
   box-sizing: border-box;
   text-align: center;
-  color: #5b2386;
+  color: var(--main-color);
   background: #ffffff;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
   border-radius: 30px;
@@ -194,10 +213,23 @@ footer small.txt-footer {
   margin-top: 74px;
 }
 
-.cheerup-modal .cheerup-comments img + img {
-  margin-top: 30px;
+.cheerup-modal .cheerup-comments {
+  font-family: "OTEnjoystoriesBA";
+  font-weight: 700;
+  font-size: 2.25rem;
+}
+
+.cheerup-modal .cheerup-comments strong {
+  font-size: 6rem;
+  line-height: 106px;
+}
+
+.cheerup-modal .cheerup-comments span {
+  display: block;
+  margin-top: 7px;
+  line-height: 40px;
 }
 
 .cheerup-modal .cheerup-comments {
-  margin-bottom: 34px;
+  margin-bottom: 29px;
 }
