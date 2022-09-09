@@ -12,46 +12,78 @@
     <header>
       <h1>
         <img
-          class="title-background centering img-flow-root"
+          class="centering img-flow-root"
+          srcset="./img/clock_mobile.png 125w, ./img/clock.png 265w"
+          sizes="(max-width: 780px) 125px, 265px"
           src="./img/clock.png"
           alt=""
         />
         <img
           class="title centering"
           srcset="./img/title_mobile.png 267w, ./img/title.png 564w"
-          sizes="(max-width: 780px) 267px,564px"
+          sizes="(max-width: 780px) 267px, 564px"
           src="./img/title.png"
-          alt="1만 시간의 법칙 타이틀"
+          alt="1만 시간의 법칙"
         />
+
+        <!--
+          Figma 시안에서 모바일 이미지가 따로 주어지는 경우
+          img 요소의 srcset, sizes attribute를 이용해
+          Viewport 크기에 따라 유동적으로 이미지를 로드하도록 구현했습니다.
+        -->
+
+        <!--
+          타이틀 이미지의 alt를 "1만 시간의 법칙 타이틀"로 할지
+          "1만 시간의 법칙"으로 할지 고민하다가
+          스크린리더를 감안해 이렇게 결정했습니다.
+        -->
       </h1>
     </header>
     <main>
-      <blockquote class="wisdom-quote text-centering">
+      <blockquote class="quote-wisdom text-centering">
         "연습은 어제의 당신보다 당신을 더 낫게 만든다."
       </blockquote>
-      <blockquote class="rule-definition text-centering centering">
+      <p class="rule-definition text-centering centering">
         <dfn>1만 시간의 법칙</dfn>은<br />어떤 분야의 전문가가 되기 위해서는<br />
         최소한 1만 시간의 훈련이 필요하다는 법칙이다.
-      </blockquote>
-      <form id="target-form" class="howmuch-form text-centering" action="">
-        <p class="howmuch-form__txt">
+        <!--
+          문맥상 1만 시간의 법칙을 정의하고 있으므로
+          <dfn> 요소를 사용했습니다.
+        -->
+      </p>
+      <form class="rule-form text-centering rule-form-js" action="">
+        <!--
+          스타일을 위한 클래스명이 바뀌더라도
+          로직은 그대로 작동할 수 있도록
+          target-form-js 클래스를 추가했습니다.
+        -->
+        <p class="rule-form__txt">
           나는<input
-            id="target"
+            class="rule-form__input rule-form__input-target-js"
             type="text"
             placeholder="예)프로그래밍"
           />전문가가 될 것이다.
         </p>
-        <p class="howmuch-form__txt">
+        <p class="rule-form__txt">
           <span>그래서 앞으로 매일 하루에</span
           ><input
-            id="hours-for-target"
+            class="rule-form__input rule-form__input-hours-js"
             type="text"
             placeholder="예)5시간"
           />시간씩 훈련할 것이다.
         </p>
-        <div class="submit-btn-wrapper">
-          <button class="yellow-btn mobile-square-btn">
+        <div class="rule-form__btn-wrapper">
+          <!--
+            position absolute를 이용해
+            손가락의 위치를 구현하기 위해
+            이같은 구조를 사용했습니다.
+            온전히 버튼만의 영역을 고려해 각 요소의 위치를
+            조정한다는 것을 감안했습니다.
+          -->
+          <button class="btn-point-colored btn-squared-mobile">
+            <!-- default type: submit -->
             <span>나는 며칠 동안 훈련을 해야</span> 1만 시간이 될까?
+            <!-- 모바일에서 span 요소에 display:block을 주어 줄바꿈을 구현합니다. -->
           </button>
           <img
             class="click-icon"
@@ -60,22 +92,47 @@
             src="./img/click.png"
             alt=""
           />
+          <!--
+            Backend에서 바꿀 일이 없어보이는 이미지이므로 CSS에서 background-image property를 쓰는 방법도
+            좋은 방법인 것 같지만, 그 경우에도 버튼을 감싸는 div 요소가 필요할 것이고, 밑에 올 요소와의 간격 조절이 까다로울거라고 생각했습니다.
+          -->
         </div>
       </form>
       <section class="result">
         <h2 class="blind">결과 확인</h2>
-        <p class="txt-result text-centering">
-          당신은<strong id="target-result">프로그래밍</strong>전문가가 되기
-          위해서
+        <p class="result__txt text-centering">
+          당신은<strong class="result__target-js">프로그래밍</strong>전문가가
+          되기 위해서
         </p>
-        <p class="txt-result text-centering">
-          대략<strong id="days-for-target">5110</strong>일 이상 훈련하셔야
+        <p class="result__txt text-centering">
+          대략<strong class="result__days-js">5110</strong>일 이상 훈련하셔야
           합니다! :)
         </p>
-        <div class="do-more">
-          <button id="modal-opener" class="yellow-btn" type="button">
+        <div class="text-centering">
+          <!--
+            <button>과 <a> 모두 Inline elements이므로
+            text-align: center;를 이용해 가운데 정렬하기 위한 div 요소를 추가했습니다.
+            <button>들의 좌 우측에 각각 margin:auto;를 주는것도 방법이 될 수 있겠지만
+            이게 더 간편하다고 생각했습니다.
+            이렇게 CSS를 줄일지, 마크업을 줄일지 고민이 되는 부분이 많았습니다.
+          -->
+          <button
+            class="btn-point-colored cheerup-modal__opener-js"
+            type="button"
+          >
             훈련하러 가기 GO!GO!</button
-          ><a class="white-btn share-link" href="">공유하기</a>
+          ><button
+            class="btn-second-main-colored share-link share-link-js"
+            data-copiedlink="https://custardcream98.github.io/the-10000-hours-rule/"
+            type="button"
+          >
+            공유하기
+          </button>
+          <!--
+            "훈련하러 가기"는 modal 창을 띄우고,
+            "공유하기"는 페이지의 URL을 복사하는 <button> 요소입니다.
+          -->
+          <!-- 공유하기는 JS에서 구현했습니다. -->
         </div>
       </section>
     </main>
@@ -85,27 +142,42 @@
         srcset="./img/logo_mobile.png 91w, ./img/logo.png 125w"
         sizes="(max-width: 780px) 91px, 125px"
         src="./img/logo.png"
-        alt=""
+        alt="위니브"
       />
       <small class="txt-footer"
         >※ 본 서비스 내 이미지 및 콘텐츠의 저작권은 주식회사 WeNiv에
         있습니다.<br />
         수정 및 재배포, 무단 도용 시 법적인 문제가 발생할 수 있습니다.</small
       >
+      <!-- 저작권과 관련된 내용이므로 <small> 요소를 사용했습니다. -->
     </footer>
     <!-- Cheerup Modal -->
-    <div id="modal-wrapper">
-      <section class="cheerup-modal">
+    <div class="cheerup-modal__wrapper cheerup-modal__wrapper-js">
+      <!--
+        배경 blur를 위해서
+        wrapper 역할의 div 요소로 감쌌습니다.
+      -->
+      <section class="cheerup-modal cheerup-modal-js">
+        <!--
+          Bubbling을 방지하기 위한 로직을 추가할 가능성이 있어 cheerup-modal-js 클래스를 부여해놓았습니다.
+
+          그러나 modal 창이 너무 커서 배경을 눌러야 닫히게 하는건 사용자 경험에 방해가 될 것 같아 구현하지는 않았습니다.
+
+          디자이너와 협의해 닫기 버튼을 추가하는 등의 시도를 해도 좋을 것 같습니다.
+        -->
         <h2 class="blind">응원 팝업창</h2>
-        <p class="cheerup-comments">
-          <strong>화이팅!!<span class="hide-heart">♥♥♥</span></strong>
+        <!-- 정확한 명칭은 modal창이지만 듣는이를 고려했습니다. -->
+        <p class="cheerup-modal__txt">
+          <strong>화이팅!!<span class="hide-mobile">♥♥♥</span></strong>
           <span>당신의 꿈을 응원합니다!</span>
         </p>
         <img
-          class="img-flow-root centering licat-cheering"
+          class="img-flow-root centering cheerup-modal__img"
           src="./img/licat.png"
           alt="응원하는 라이캣"
-        /><a class="yellow-btn centering mobile-square-btn" href=""
+        /><a
+          class="btn-point-colored centering btn-squared-mobile"
+          href="https://paullab.co.kr/index.html"
           ><span>종료하고 진짜</span> <span>훈련하러 가기 GO!GO!</span></a
         >
       </section>

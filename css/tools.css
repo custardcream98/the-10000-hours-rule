@@ -1,0 +1,28 @@
+/*
+  반복해서 사용되는 스타일을 class로 묶어 모아둔 코드
+*/
+
+/*
+  특정 요소 (예: 노란색 버튼)에 대한 스타일은 index.css에 있습니다.
+*/
+
+.blind {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+}
+
+.img-flow-root {
+  display: flow-root;
+}
+
+.centering {
+  margin: 0 auto;
+}
+
+.text-centering {
+  text-align: center;
+}

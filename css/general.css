@@ -1,0 +1,77 @@
+/*
+  재사용성이 높은 스타일(예: 버튼 스타일)을 모았습니다.
+*/
+
+/*
+  모든 버튼 요소
+  흰색과 노란색, 모바일 박스형 버튼
+*/
+
+a.btn-second-main-colored,
+a.btn-point-colored {
+  /*
+    anchor 요소일 경우 inline-block으로 display value를 바꿔서 width와 height 등 크기와 관련된 property를 변경할 수 있도록 합니다.
+  */
+  display: inline-block;
+}
+
+.btn-second-main-colored,
+.btn-point-colored {
+  /*
+    max-width를 정해서 안정성을 높일까 고민했으나
+    현 단계에서는 불필요하다고 생각해 이 상태로 뒀습니다.
+  */
+  padding: 21px 49px;
+  border: none;
+  /*
+    border-radius 값은 충분히 큰 값을 줘서
+    요소 안의 컨텐츠가 많아지더라도 둥근 모양이 유지되도록 했습니다.
+  */
+  border-radius: 500px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: "GmarketSansMedium";
+  color: var(--main-color);
+  background-color: var(--point-color);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.btn-second-main-colored {
+  background-color: var(--second-main-color);
+}
+
+@media (max-width: 780px) {
+  .btn-second-main-colored,
+  .btn-point-colored {
+    padding: 13.5px 17.5px 12.5px 17.5px;
+    font-size: 0.875rem;
+  }
+  .btn-squared-mobile {
+    border-radius: 13px;
+    padding: 19px 36.5px 17px 36.5px;
+    line-height: 1rem;
+  }
+  .btn-squared-mobile span {
+    display: block;
+    line-height: inherit;
+  }
+}
+
+/*
+  모바일에서만 사용되는 class
+*/
+
+@media (max-width: 780px) {
+  .hide-mobile {
+    /*
+      .blind와 같은 코드입니다.
+      여기에서는 하트를 가리기 위해 사용합니다.
+    */
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+  }
+}

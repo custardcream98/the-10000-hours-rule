@@ -1,266 +1,291 @@
 @import url("reset.css");
+@import url("tools.css");
+@import url("general.css");
 @import url("font.css");
+
+/*
+  Class Selector를 사용할 때는
+  어떤 요소에 대한 스타일인지 알아보기 위해
+  필요한 경우라고 판단하면
+  요소명을 붙여주는 방식을 사용했습니다.
+
+  ex: .title보다는 img.title (title만 가지고는 이미지인지 알 수 없음)
+*/
+
+/*
+  User의 선택에 따라
+  글씨를 크게 혹은 작게 볼 수 있도록
+  font-size 등 일부 property는
+  rem / em 단위를 사용했습니다.
+*/
+
+/*
+  property 순서 컨벤션
+  0. position, display, align, visibility
+  1. width, height
+  2. margin, padding, border, box-sizing
+  3. text-align, font, line-height
+  4. color, background-color
+  5. background-image
+  6. animation, opacity 등 기타
+*/
+
+/*
+  주요 색상을 CSS 변수로 선언해
+  추후 편리하게 색상을 바꿀 수 있도록 했습니다.
+*/
 
 :root {
   --main-color: #5b2386;
-  --main-gray: #babcbe;
-  --main-yellow: #fcee21;
-}
-
-a {
-  text-decoration: none;
-}
-
-button {
-  cursor: pointer;
-}
-
-.blind {
-  position: absolute;
-  clip: rect(0 0 0 0);
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-}
-
-.img-flow-root {
-  display: flow-root;
-}
-
-.centering {
-  margin: 0 auto;
-}
-
-.text-centering {
-  text-align: center;
+  --second-main-color: #ffff;
+  --sub-color: #babcbe;
+  --point-color: #fcee21;
 }
 
 body {
-  background-color: var(--main-color);
-  color: white;
   font-weight: 400;
   font-family: "GmarketSansMedium";
+  color: var(--second-main-color);
+  background-color: var(--main-color);
 }
 
+/*
+  부모인 h1 요소에 position: relative;를 주고
+  img.title에 position: absolute;를 줘서
+  두 img 요소가 상대적인 위치를 가지고 겹칠 수 있도록 했습니다.
+*/
+
 h1 {
+  /*
+    position: relative;를 줘서
+    stack context를 생성합니다.
+  */
   position: relative;
-  box-sizing: border-box;
-  margin: auto;
   margin-top: 120px;
 }
 
-h1 .title {
-  width: 564px;
-  height: 112px;
+h1 img.title {
   position: absolute;
   top: 76.5px;
   left: 0;
   right: 0;
   bottom: 0;
+  width: 564px;
+  height: 112px;
 }
 
 @media (max-width: 780px) {
   h1 {
     margin-top: 41px;
   }
-  h1 .title {
+  h1 img.title {
     top: 36.5px;
     width: 267px;
     height: 53px;
   }
-  h1 .title-background {
-    width: 125px;
-    height: 126px;
-  }
 }
 
-.wisdom-quote {
+/*
+  "연습은 어제의 당신보다 당신을 더 낫게 만든다."
+*/
+
+.quote-wisdom {
   margin-top: 66px;
-  font-family: "OTEnjoystoriesBA";
-  color: var(--main-yellow);
   font-size: 2.25rem;
   font-weight: 700;
+  font-family: "OTEnjoystoriesBA";
+  line-height: 2.5rem;
+  color: var(--point-color);
 }
 
 @media (max-width: 780px) {
-  .wisdom-quote {
+  .quote-wisdom {
     margin-top: 31px;
     font-size: 1.375rem;
+    line-height: 1.5rem;
   }
 }
 
-.rule-definition {
-  height: 85px;
+/*
+  1만 시간의 법칙은
+  어떤 분야의 전문가가 되기 위해서는
+  최소한 1만 시간의 훈련이 필요하다는 법칙이다.
+*/
+
+p.rule-definition {
   width: 493px;
+  height: 85px;
   margin-top: 78px;
+  font-size: 1.125rem;
   line-height: 1.9375rem;
-  font-size: 1.125em;
   background-image: url("../img/quotes.png");
   background-repeat: no-repeat;
   background-position: center top 13px;
   background-size: contain;
 }
 
-.rule-definition dfn {
-  line-height: 24px;
-  font-size: 1.5em;
+p.rule-definition dfn {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
   font-weight: bold;
 }
 
 @media (max-width: 780px) {
-  .rule-definition {
-    height: 68px;
-    width: 290px;
+  p.rule-definition {
+    width: 298px;
+    height: 72px;
     margin-top: 62px;
     font-size: 0.875rem;
-    line-height: 1.8rem;
+    line-height: 1.5rem;
+    /*
+      모바일일 경우 background-image를 변경합니다.
+    */
     background-image: url("../img/quotes_mobile.png");
-    background-size: 302px;
     background-position: center top 24px;
-    /* 추후 수정 필요 */
   }
-  .rule-definition dfn {
+  p.rule-definition dfn {
     font-size: 1rem;
-    line-height: 16px;
+    line-height: 1rem;
   }
 }
 
-.howmuch-form {
+/*
+  입력 폼
+*/
+
+.rule-form {
   margin-top: 78px;
   font-size: 1.5em;
   font-weight: 400;
 }
 
-.howmuch-form__txt + .howmuch-form__txt {
+.rule-form__txt + .rule-form__txt {
   margin-top: 27px;
+  /*
+    추후 입력 줄이 추가되더라도
+    .rule-form__txt끼리는 27px의 간격이 자동으로 생깁니다.
+  */
 }
 
-.howmuch-form__txt input {
+.rule-form__input {
   display: inline-block;
   vertical-align: middle;
-  border: none;
-  border-radius: 7px;
-  margin: 0 17px;
   width: 228px;
   height: 57px;
+  margin: 0 17px;
+  border: none;
+  border-radius: 7px;
   color: var(--main-color);
 }
 
-.howmuch-form__txt input:focus {
+.rule-form__input:focus {
+  /*
+    실무였다면 디자이너분께
+    input 요소를 눌러 텍스트를 입력할 때
+    추가적인 디자인은 없는지 여쭤봤을 것 같습니다.
+  */
   outline: none;
 }
 
-.howmuch-form__txt input,
-.howmuch-form__txt input::placeholder {
+.rule-form__input,
+.rule-form__input::placeholder {
   text-align: center;
   font-size: 1em;
   font-weight: 400;
   font-family: "GmarketSansMedium";
 }
 
-.howmuch-form__txt input::placeholder {
-  color: var(--main-gray);
+.rule-form__txt .rule-form__input::placeholder {
+  color: var(--sub-color);
 }
 
 @media (max-width: 780px) {
-  .howmuch-form {
+  .rule-form {
+    margin-top: 62px;
     font-size: 0.875rem;
   }
-  .howmuch-form__txt input {
-    margin: 0 4px;
+  .rule-form__input {
     width: 156px;
     height: 37px;
+    margin: 0 4px;
   }
-  .howmuch-form__txt + .howmuch-form__txt {
+  .rule-form__txt + .rule-form__txt {
     margin-top: 17px;
   }
-  .howmuch-form__txt + .howmuch-form__txt span {
+  .rule-form__txt + .rule-form__txt span {
+    /*
+      "그래서 앞으로 매일 하루에"
+      부분을 <span> 요소로 묶어서
+      모바일 환경에서는 display: block;을 주어 줄바꿈을 구현했습니다.
+    */
     display: block;
     margin-bottom: 19px;
   }
 }
 
-.submit-btn-wrapper {
+/*
+  입력 form 바로 밑의 클릭 아이콘과 버튼
+*/
+
+.rule-form__btn-wrapper {
   margin-top: 115px;
 }
 
-.submit-btn-wrapper .click-icon {
+.rule-form__btn-wrapper .click-icon {
   position: absolute;
   margin-left: 7px;
   margin-top: 14px;
 }
 
-.white-btn,
-.yellow-btn {
-  padding: 21px 49px;
-  color: var(--main-color);
-  background-color: var(--main-yellow);
-  border: none;
-  font-size: 1.5rem;
-  font-weight: bold;
-  font-family: "GmarketSansMedium";
-  border-radius: 56px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-}
-
 @media (max-width: 780px) {
-  .white-btn,
-  .yellow-btn {
-    padding: 13.5px 17.5px 12.5px 17.5px;
-    font-size: 0.875rem;
-  }
-  .mobile-square-btn {
-    border-radius: 13px;
-    padding: 19px 36.5px 17px 36.5px;
-    width: 241px;
-    box-sizing: border-box;
-  }
-  .mobile-square-btn span {
-    display: inline-block;
-    line-height: 18px;
-  }
-  .submit-btn-wrapper {
+  .rule-form__btn-wrapper {
     margin-top: 49px;
     margin-left: 56px;
     margin-right: 63px;
   }
-  .submit-btn-wrapper .click-icon {
+  .rule-form__btn-wrapper .click-icon {
     position: absolute;
     margin-left: 6px;
     margin-top: 30px;
   }
 }
 
-.white-btn {
-  background-color: white;
-}
+/*
+  결과가 표시되는 <section> 요소
+*/
 
-a.yellow-btn {
-  display: inline-block;
-}
-
-.result {
+section.result {
   margin-top: 147px;
   margin-bottom: 130px;
   font-size: 1.5rem;
 }
 
-.txt-result + .txt-result {
+.result__txt + .result__txt {
   margin-top: 17px;
 }
 
-.txt-result strong {
+.result__txt strong {
   display: inline-block;
   margin: 0 12px;
   font-size: 4.5rem;
   font-weight: bold;
   vertical-align: middle;
+  /* 
+    Inline element인 <strong>의
+    baseline을 middle로 줌으로써
+    다른 Text node들과 수직으로
+    가운데 정렬이 되도록 합니다.
+  */
 }
 
-.do-more {
+section.result div:last-child {
+  /*
+    last-child pesudo class를 이용해
+    결과 내용이 늘어나더라도 항상
+    아래의 interactive elements들을 감싼 div 요소와 결과 내용들이
+    일정한 간격을 유지하도록 했습니다.
+  */
   margin-top: 127px;
-  text-align: center;
 }
 
 .share-link {
@@ -268,31 +293,39 @@ a.yellow-btn {
 }
 
 @media (max-width: 780px) {
-  .result {
+  section.result {
     margin-top: 64px;
     margin-bottom: 83px;
     font-size: 0.875rem;
   }
-  .txt-result + .txt-result {
+  .result__txt + .result__txt {
     margin-top: 15px;
   }
-  .txt-result strong {
+  .result__txt strong {
     margin: 0 8px;
     font-size: 1.5rem;
   }
-  .do-more {
+  section.result div:last-child {
     margin-top: 55px;
   }
 }
 
+/*
+  footer 영역
+*/
+
 footer small.txt-footer {
   display: block;
+  /*
+    Block-level element로 바꿔서
+    text-align: center;를 줘 텍스트를 가운데 정렬합니다.
+  */
   margin-top: 20px;
   margin-bottom: 70px;
   text-align: center;
   font-size: 0.75rem;
   font-family: "Noto Sans KR";
-  line-height: 17px;
+  line-height: 1.0625rem;
 }
 
 @media (max-width: 780px) {
@@ -302,91 +335,106 @@ footer small.txt-footer {
     font-size: 0.5625rem;
     line-height: 0.8125rem;
     color: rgba(255, 255, 255, 0.7);
+    /* 모바일에서는 색이 바뀝니다. */
   }
 }
 
+/* modal 창 */
+
 .cheerup-modal {
+  /*
+    modal 창은 overlay돼야 하는 요소이므로
+    position: fixed;와 top, left를 50%로 줘서
+    좌상단을 Viewport의 가운데로 맞춘 후,
+    transform proprerty를 이용해 창 자체가 가운데로 올 수 있도록 합니다.
+  */
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  min-width: 800px;
+  width: 800px;
   min-height: 800px;
-  margin-bottom: 100px;
+  /*
+    min-height 를 줌으로써 modal 창 내의
+    컨텐츠가 늘어도 대응이 가능하도록 합니다.
+  */
   padding-top: 76px;
   padding-bottom: 68px;
+  border-radius: 30px;
   box-sizing: border-box;
   text-align: center;
   color: var(--main-color);
-  background-color: #ffffff;
+  background-color: var(--second-main-color);
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-  border-radius: 30px;
+  transform: translateX(-50%) translateY(-50%);
 }
 
-.cheerup-modal .yellow-btn {
+.cheerup-modal .btn-point-colored {
   margin-top: 74px;
 }
 
-.cheerup-modal .cheerup-comments {
-  font-family: "OTEnjoystoriesBA";
-  font-weight: 700;
+.cheerup-modal .cheerup-modal__txt {
+  margin-bottom: 29px;
   font-size: 2.25rem;
+  font-weight: 700;
+  font-family: "OTEnjoystoriesBA";
 }
 
-.cheerup-modal .cheerup-comments strong {
+.cheerup-modal .cheerup-modal__txt strong {
   font-size: 6rem;
   line-height: 106px;
 }
 
-.cheerup-modal .cheerup-comments span:not(.hide-heart) {
+.cheerup-modal .cheerup-modal__txt span:not(.hide-mobile) {
+  /*
+    줄바꿈이 필요한 "당신의 꿈을 응원합니다" span 요소에 display:block;을 부여합니다.
+    모바일에서는 보이지 않아야 하는 하트 부분을 묶은 span 요소는 무시할 수 있도록
+    not pesudo class를 이용합니다.
+  */
   display: block;
-  margin-top: 7px;
-  line-height: 40px;
-}
-.licat-cheering {
-  margin: auto;
-}
-
-.cheerup-modal .cheerup-comments {
-  margin-bottom: 29px;
+  margin-top: 4px;
+  line-height: 2.5rem;
 }
 
 @media (max-width: 780px) {
   .cheerup-modal {
-    min-width: 330px;
+    width: 330px;
     min-height: 500px;
-    margin-bottom: 100px;
     padding-top: 40px;
     padding-bottom: 40px;
   }
-  .cheerup-modal .yellow-btn {
-    margin-top: 74px;
-    width: 241px;
+  .cheerup-modal .btn-squared-mobile {
+    max-width: 241px;
+    margin-top: 27px;
     padding: 19px 45px 17px 45px;
   }
-  .cheerup-modal .cheerup-comments {
+  .cheerup-modal .cheerup-modal__txt {
+    margin-bottom: 8.81px;
     font-size: 2.25rem;
+    line-height: 2.5rem;
   }
-  .cheerup-modal .cheerup-comments strong {
+  .cheerup-modal .cheerup-modal__txt strong {
     font-size: 4rem;
-    line-height: 70px;
+    line-height: 4.375rem;
   }
-  .cheerup-modal .cheerup-comments span {
+  .cheerup-modal .cheerup-modal__txt span {
     margin-top: -4px;
+    /* 자세히 보니까 4px 겹쳐서 이렇게 했습니다. */
   }
-  .licat-cheering {
+  .cheerup-modal__img {
+    /*
+      시안에는 모바일 modal에 라이캣이 없어
+      너비 비례 계산해 넣었습니다.
+    */
     width: 259.8px;
     height: 202.2px;
   }
-  .hide-heart {
-    position: absolute;
-    clip: rect(0 0 0 0);
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-  }
 }
+
+/*
+  modal 작동 관련 애니메이션
+
+  자세한 로직은 10000hours.js에 적었습니다.
+*/
 
 @keyframes modalOpen {
   0% {
@@ -406,19 +454,40 @@ footer small.txt-footer {
   }
 }
 
-#modal-wrapper {
+/*
+  modal을 감싸는 wrapper div 요소,
+  클릭되면 modal을 닫거나
+  backdrop-filter: blur()를 줘서 뒷배경 초점을
+  흐리게 만드는 효과를 부여합니다.
+*/
+
+.cheerup-modal__wrapper {
+  /*
+    페이지가 처음 로드될 때 modal이 보이지 않도록
+    display:none;을 부여합니다.
+  */
   display: none;
+
+  /*
+    wrapper는 모든 다른 요소 위에 위치해야 하므로
+    position property를 fixed로 지정합니다.
+  */
   position: fixed;
   top: 0;
+
+  /* Viewport 꽉 차게 만듭니다. */
   width: 100vw;
   height: 100vh;
+
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  opacity: 0;
   animation: modalClose 0.4s;
 }
 
-#modal-wrapper.activated {
-  opacity: 1;
+.cheerup-modal__wrapper.activated {
+  /*
+    .activated class를 부여하거나 삭제해서
+    애니메이션을 trigger합니다.
+  */
   animation: modalOpen 0.4s;
 }
