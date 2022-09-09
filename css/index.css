@@ -258,6 +258,12 @@ section.result {
   margin-top: 147px;
   margin-bottom: 130px;
   font-size: 1.5rem;
+  line-height: 2;
+  /* line-height를 크게 줘서 결과값이 result__txt의 max-width보다 커질 때 각 줄간의 공백을 줍니다. */
+}
+
+.result__txt {
+  max-width: 765px;
 }
 
 .result__txt + .result__txt {
@@ -266,16 +272,19 @@ section.result {
 
 .result__txt strong {
   display: inline-block;
-  margin: 0 12px;
+  margin: 0px 12px;
   font-size: 4.5rem;
   font-weight: bold;
-  vertical-align: middle;
+  font-size: 4.5rem;
+  line-height: 1;
+
   /* 
     Inline element인 <strong>의
     baseline을 middle로 줌으로써
     다른 Text node들과 수직으로
     가운데 정렬이 되도록 합니다.
   */
+  vertical-align: middle;
 }
 
 section.result div:last-child {
@@ -298,6 +307,10 @@ section.result div:last-child {
     margin-bottom: 83px;
     font-size: 0.875rem;
   }
+  .result__txt {
+    max-width: 311px;
+  }
+
   .result__txt + .result__txt {
     margin-top: 15px;
   }
