@@ -60,7 +60,7 @@ body {
   두 img 요소가 상대적인 위치를 가지고 겹칠 수 있도록 했습니다.
 */
 
-h1 {
+h1.title {
   /*
     position: relative;를 줘서
     stack context를 생성합니다.
@@ -69,8 +69,14 @@ h1 {
   margin-top: 120px;
 }
 
-h1 img.title {
+h1.title .title__img {
   position: absolute;
+  /*
+    position: absolute;는 요소를 page flow에서 벗어나게 하기 때문에
+    Inline element인 img 요소임에도 불구하고
+    Block-level element로서 작동합니다.
+  */
+
   top: 76.5px;
   left: 0;
   right: 0;

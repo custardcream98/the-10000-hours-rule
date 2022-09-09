@@ -4,10 +4,10 @@
 */
 
 @media (max-width: 780px) {
-  h1 {
+  h1.title {
     margin-top: 41px;
   }
-  h1 img.title {
+  h1.title .title__img {
     top: 36.5px;
     width: 267px;
     height: 53px;
