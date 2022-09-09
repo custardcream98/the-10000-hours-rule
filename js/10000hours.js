@@ -23,13 +23,26 @@ const $resultDays = getByClass("result__days-js")[0];
 
 const $shareBtn = getByClass("share-link")[0];
 
-const $modal = getByClass("cheerup-modal-js")[0];
 const $modalOpenerBtn = getByClass("cheerup-modal__opener-js")[0];
 const $modalWrapper = getByClass("cheerup-modal__wrapper-js")[0];
 
 $ruleForm.addEventListener("submit", getAndShowResults);
 
 $shareBtn.addEventListener("click", copyShareLink);
+
+$modalWrapper.addEventListener("wheel", preventScroll, { passive: false });
+$modalWrapper.addEventListener("touchmove", preventScroll, {
+  passive: false,
+}); // 모바일
+/* 
+  passive: false 옵션을 줘서 preventDefault() 메소드를 사용할 수 있게 합니다.
+
+  Bubbling은 막았지만
+  Captureing을 건들지는 못해서
+  modal이 길어질 경우 modal 자체의 스크롤이 안됩니다.
+
+  추후 보완사항으로 우선은 남겨뒀습니다.
+*/
 
 $modalOpenerBtn.addEventListener("click", openModal);
 $modalWrapper.addEventListener("click", closeModal);
@@ -38,7 +51,6 @@ $modalWrapper.addEventListener("click", closeModal);
  * 입력값이 들어오는 `<form>` 요소의
  * `submit` 이벤트를 헨들링하는 함수
  * @param {SubmitEvent} event
- * @returns
  */
 function getAndShowResults(event) {
   const targetVal = $inputTarget.value;
@@ -66,7 +78,7 @@ function getAndShowResults(event) {
 /**
  * 1만 시간까지 몇 일 걸릴지 계산하는 함수
  * @param {number} hoursPerDay - 하루에 투자할 시간
- * @returns {string} 1만 시간까지 걸리는 일 수
+ * @return {string} 1만 시간까지 걸리는 일 수
  */
 function calDaysForTarget(hoursPerDay) {
   return Math.round(10000 / hoursPerDay).toString();
@@ -80,7 +92,6 @@ function calDaysForTarget(hoursPerDay) {
  *
  * [참고한 MDN 문서](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API)
  * @param {MouseEvent} event
- * @return
  */
 async function copyShareLink(event) {
   // event를 일으킨 요소에서 data attribute를 통해 복사할 링크를 가져옵니다.
@@ -90,6 +101,16 @@ async function copyShareLink(event) {
   await navigator.clipboard.writeText(link);
 
   window.alert("🙌 링크가 복사됐습니다 🙌\n친구에게 공유해보세요 😁👍");
+}
+
+/**
+ * modal 배경 스크롤을 방지하기 위한 함수
+ * @param {Event} event
+ */
+function preventScroll(event) {
+  event.preventDefault();
+  event.stopPropagation();
+  return false;
 }
 
 /**
