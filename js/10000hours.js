@@ -58,11 +58,8 @@ function getAndShowResults(event) {
   // 각 입력값을 불러옵니다.
   // 시간은 float으로 형변환합니다.
 
-  if (targetVal === "" || isNaN(hoursVal)) {
-    // 두 값중 하나라도 비어있다면 아무것도 하지 않습니다.
-    event.preventDefault();
-    return;
-  }
+  // form에서 유효성검사를 해서 오므로
+  // 각 값에 대해 JS에서 추가로 검사할 필요는 없습니다.
 
   // 결과가 들어갈 곳을 채웁니다.
   $resultTarget.textContent = targetVal;

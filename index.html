@@ -58,11 +58,17 @@
           로직은 그대로 작동할 수 있도록
           target-form-js 클래스를 추가했습니다.
         -->
+        <!--
+          각 input 요소에 required attribute를 지정해 필수로 기입하게 하고,
+          시간 입력란의 경우 정규표현식을 사용해
+          숫자가 입력됐는지 확인합니다. 
+        -->
         <p class="rule-form__txt">
           나는<input
             class="rule-form__input rule-form__input-target-js"
             type="text"
             placeholder="예)프로그래밍"
+            required
           />전문가가 될 것이다.
         </p>
         <p class="rule-form__txt">
@@ -71,7 +77,13 @@
             class="rule-form__input rule-form__input-hours-js"
             type="text"
             placeholder="예)5시간"
+            pattern="[0-9]*\.?[0-9]*.*"
+            required
           />시간씩 훈련할 것이다.
+          <!--
+            정규표현식
+            (소수 포함 숫자)(공백(선택))(아무 문자(선택))
+          -->
         </p>
         <div class="rule-form__btn-wrapper">
           <!--
