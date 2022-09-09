@@ -1,0 +1,159 @@
+/*
+  모바일과 PC 스타일 코드를 분리했습니다.
+  PC 스타일은 index.css에서 확인할 수 있습니다.
+*/
+
+@media (max-width: 780px) {
+  h1 {
+    margin-top: 41px;
+  }
+  h1 img.title {
+    top: 36.5px;
+    width: 267px;
+    height: 53px;
+  }
+
+  /*
+    격언
+  */
+
+  .quote-wisdom {
+    margin-top: 31px;
+    font-size: 1.375rem;
+    line-height: 1.5rem;
+  }
+
+  /*
+    1만 시간의 법칙 정의
+  */
+
+  p.rule-definition {
+    width: 298px;
+    height: 72px;
+    margin-top: 62px;
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+    /*
+      모바일일 경우 background-image를 변경합니다.
+    */
+    background-image: url("../img/quotes_mobile.png");
+    background-position: center top 24px;
+  }
+  p.rule-definition dfn {
+    font-size: 1rem;
+    line-height: 1rem;
+  }
+
+  /*
+    입력 폼
+  */
+
+  .rule-form {
+    margin-top: 62px;
+    font-size: 0.875rem;
+  }
+  .rule-form__input {
+    width: 156px;
+    height: 37px;
+    margin: 0 4px;
+  }
+  .rule-form__txt + .rule-form__txt {
+    margin-top: 17px;
+  }
+  .rule-form__txt + .rule-form__txt span {
+    /*
+      "그래서 앞으로 매일 하루에"
+      부분을 <span> 요소로 묶어서
+      모바일 환경에서는 display: block;을 주어 줄바꿈을 구현했습니다.
+    */
+    display: block;
+    margin-bottom: 19px;
+  }
+
+  /*
+  입력 form 바로 밑의 클릭 아이콘과 버튼
+  */
+
+  .rule-form__btn-wrapper {
+    margin-top: 49px;
+    margin-left: 56px;
+    margin-right: 63px;
+  }
+  .rule-form__btn-wrapper .click-icon {
+    position: absolute;
+    margin-left: 6px;
+    margin-top: 30px;
+  }
+
+  /*
+    결과가 표시되는 <section> 요소
+  */
+
+  section.result {
+    margin-top: 64px;
+    margin-bottom: 83px;
+    font-size: 0.875rem;
+  }
+  .result__txt {
+    max-width: 311px;
+  }
+
+  .result__txt + .result__txt {
+    margin-top: 15px;
+  }
+  .result__txt strong {
+    margin: 0 8px;
+    font-size: 1.5rem;
+  }
+  section.result div:last-child {
+    margin-top: 55px;
+  }
+
+  /*
+    footer 영역
+  */
+
+  footer small.txt-footer {
+    margin-top: 20px;
+    margin-bottom: 32px;
+    font-size: 0.5625rem;
+    line-height: 0.8125rem;
+    color: rgba(255, 255, 255, 0.7);
+    /* 모바일에서는 색이 바뀝니다. */
+  }
+
+  /* modal 창 */
+
+  .cheerup-modal {
+    width: 330px;
+    min-height: 500px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .cheerup-modal .btn-squared-mobile {
+    max-width: 241px;
+    margin-top: 27px;
+    padding: 19px 45px 17px 45px;
+  }
+  .cheerup-modal .cheerup-modal__txt {
+    margin-bottom: 8.81px;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+  .cheerup-modal .cheerup-modal__txt strong {
+    font-size: 4rem;
+    line-height: 4.375rem;
+  }
+  .cheerup-modal .cheerup-modal__txt span {
+    margin-top: -4px;
+    /* 자세히 보니까 4px 겹쳐서 이렇게 했습니다. */
+  }
+  .cheerup-modal__img {
+    /*
+      시안에는 모바일 modal에 라이캣이 없어
+      너비 비례 계산해 넣었습니다.
+    */
+    width: 259.8px;
+    height: 202.2px;
+  }
+}
