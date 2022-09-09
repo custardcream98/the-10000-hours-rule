@@ -49,7 +49,7 @@
 
 body {
   font-weight: 400;
-  font-family: "GmarketSansMedium";
+  font-family: "GmarketSans";
   color: var(--second-main-color);
   background-color: var(--main-color);
 }
@@ -163,7 +163,7 @@ p.rule-definition dfn {
   text-align: center;
   font-size: 1em;
   font-weight: 400;
-  font-family: "GmarketSansMedium";
+  font-family: "GmarketSans";
 }
 
 .rule-form__txt .rule-form__input::placeholder {

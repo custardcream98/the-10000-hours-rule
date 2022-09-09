@@ -4,6 +4,7 @@
     format("woff");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -12,6 +13,7 @@
     format("woff");
   font-weight: bold;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -20,6 +22,7 @@
     format("woff");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -32,4 +35,5 @@
       format("woff"),
     url("https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf")
       format("opentype");
+  font-display: swap;
 }
