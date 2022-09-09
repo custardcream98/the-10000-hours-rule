@@ -8,25 +8,24 @@
   각각의 로직은 각 함수에 적었습니다.
 */
 
-const $ruleForm = document.getElementsByClassName("rule-form-js")[0];
-const $inputTarget = document.getElementsByClassName(
-  "rule-form__input-target-js"
-)[0];
-const $inputHours = document.getElementsByClassName(
-  "rule-form__input-hours-js"
-)[0];
-const $resultTarget = document.getElementsByClassName("result__target-js")[0];
-const $resultDays = document.getElementsByClassName("result__days-js")[0];
+/**
+ * 클래스 이름들로 요소 Ref 를 반환하는 함수
+ * @param {string} classNames
+ * @returns {HTMLCollectionOf<Element>} 요소 Collection
+ */
+const getByClass = (classNames) => document.getElementsByClassName(classNames);
 
-const $shareBtn = document.getElementsByClassName("share-link")[0];
+const $ruleForm = getByClass("rule-form-js")[0];
+const $inputTarget = getByClass("rule-form__input-target-js")[0];
+const $inputHours = getByClass("rule-form__input-hours-js")[0];
+const $resultTarget = getByClass("result__target-js")[0];
+const $resultDays = getByClass("result__days-js")[0];
 
-const $modal = document.getElementsByClassName("cheerup-modal-js")[0];
-const $modalOpenerBtn = document.getElementsByClassName(
-  "cheerup-modal__opener-js"
-)[0];
-const $modalWrapper = document.getElementsByClassName(
-  "cheerup-modal__wrapper-js"
-)[0];
+const $shareBtn = getByClass("share-link")[0];
+
+const $modal = getByClass("cheerup-modal-js")[0];
+const $modalOpenerBtn = getByClass("cheerup-modal__opener-js")[0];
+const $modalWrapper = getByClass("cheerup-modal__wrapper-js")[0];
 
 $ruleForm.addEventListener("submit", getAndShowResults);
 
@@ -81,7 +80,7 @@ function calDaysForTarget(hoursPerDay) {
  *
  * [참고한 MDN 문서](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API)
  * @param {MouseEvent} event
- * @return void
+ * @return
  */
 async function copyShareLink(event) {
   // event를 일으킨 요소에서 data attribute를 통해 복사할 링크를 가져옵니다.
