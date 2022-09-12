@@ -41,76 +41,82 @@
       </h1>
     </header>
     <main>
-      <blockquote class="quote-wisdom text-centering">
-        "연습은 어제의 당신보다 당신을 더 낫게 만든다."
-      </blockquote>
-      <p class="rule-definition text-centering centering">
-        <dfn>1만 시간의 법칙</dfn>은<br />어떤 분야의 전문가가 되기 위해서는<br />
-        최소한 1만 시간의 훈련이 필요하다는 법칙이다.
-        <!--
+      <section class="quote-and-dfn">
+        <h2 class="blind">격언과 1만시간의 법칙 정의</h2>
+        <blockquote class="quote-wisdom text-centering">
+          "연습은 어제의 당신보다 당신을 더 낫게 만든다."
+        </blockquote>
+        <p class="rule-definition text-centering centering">
+          <dfn>1만 시간의 법칙</dfn>은<br />어떤 분야의 전문가가 되기
+          위해서는<br />
+          최소한 1만 시간의 훈련이 필요하다는 법칙이다.
+          <!--
           문맥상 1만 시간의 법칙을 정의하고 있으므로
           <dfn> 요소를 사용했습니다.
-        -->
-      </p>
-      <form class="rule-form text-centering rule-form-js" action="">
-        <!--
+        --></p>
+      </section>
+      <section class="rule-form">
+        <h2 class="blind">
+          어떤 전문가가 되고 싶고 하루에 몇 시간씩 훈련할 예정인지 입력할 폼
+        </h2>
+        <form class="rule-form text-centering rule-form-js" action="">
+          <!--
           스타일을 위한 클래스명이 바뀌더라도
           로직은 그대로 작동할 수 있도록
           target-form-js 클래스를 추가했습니다.
         -->
-        <!--
+          <!--
           각 input 요소에 required attribute를 지정해 필수로 기입하게 하고,
           시간 입력란의 경우 정규표현식을 사용해
           숫자가 입력됐는지 확인합니다. 
         -->
-        <p class="rule-form__txt">
-          나는<input
-            class="rule-form__input rule-form__input-target-js"
-            type="text"
-            placeholder="예)프로그래밍"
-            required
-          />전문가가 될 것이다.
-        </p>
-        <p class="rule-form__txt">
-          <span>그래서 앞으로 매일 하루에</span
-          ><input
-            class="rule-form__input rule-form__input-hours-js"
-            type="text"
-            placeholder="예)5시간"
-            pattern="[0-9]*\.?[0-9]*.*"
-            required
-          />시간씩 훈련할 것이다.
-          <!--
+          <p class="rule-form__txt">
+            나는<input
+              class="rule-form__input rule-form__input-target-js"
+              type="text"
+              placeholder="예)프로그래밍"
+              required
+            />전문가가 될 것이다.
+          </p>
+          <p class="rule-form__txt">
+            <span>그래서 앞으로 매일 하루에</span
+            ><input
+              class="rule-form__input rule-form__input-hours-js"
+              type="text"
+              placeholder="예)5시간"
+              pattern="[0-9]*\.?[0-9]*.*"
+              required
+            />시간씩 훈련할 것이다.
+            <!--
             정규표현식
             (소수 포함 숫자)(공백(선택))(아무 문자(선택))
-          -->
-        </p>
-        <div class="rule-form__btn-wrapper">
-          <!--
+          --></p>
+          <div class="rule-form__btn-wrapper">
+            <!--
             position absolute를 이용해
             손가락의 위치를 구현하기 위해
             이같은 구조를 사용했습니다.
             온전히 버튼만의 영역을 고려해 각 요소의 위치를
             조정한다는 것을 감안했습니다.
           -->
-          <button class="btn-point-colored btn-squared-mobile">
-            <!-- default type: submit -->
-            <span>나는 며칠 동안 훈련을 해야</span> 1만 시간이 될까?
-            <!-- 모바일에서 span 요소에 display:block을 주어 줄바꿈을 구현합니다. -->
-          </button>
-          <img
-            class="click-icon"
-            srcset="./img/click_mobile.png 43w, ./img/click.png 64w"
-            sizes="(max-width: 780px) 43px, 64px"
-            src="./img/click.png"
-            alt=""
-          />
-          <!--
+            <button class="btn-point-colored btn-squared-mobile">
+              <!-- default type: submit -->
+              <span>나는 며칠 동안 훈련을 해야</span> 1만 시간이 될까?
+              <!-- 모바일에서 span 요소에 display:block을 주어 줄바꿈을 구현합니다. -->
+            </button>
+            <img
+              class="click-icon"
+              srcset="./img/click_mobile.png 43w, ./img/click.png 64w"
+              sizes="(max-width: 780px) 43px, 64px"
+              src="./img/click.png"
+              alt=""
+            />
+            <!--
             Backend에서 바꿀 일이 없어보이는 이미지이므로 CSS에서 background-image property를 쓰는 방법도
             좋은 방법인 것 같지만, 그 경우에도 버튼을 감싸는 div 요소가 필요할 것이고, 밑에 올 요소와의 간격 조절이 까다로울거라고 생각했습니다.
-          -->
-        </div>
-      </form>
+          --></div>
+        </form>
+      </section>
       <!-- 결과 section -->
       <section class="result text-centering">
         <!-- text-align은 inharitable property입니다. -->

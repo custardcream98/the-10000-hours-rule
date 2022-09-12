@@ -13,12 +13,21 @@
     height: 53px;
   }
 
+  /* 
+
+  격언과 법칙 정의 section
+
+  */
+
+  section.quote-and-dfn {
+    margin-top: 31px;
+  }
+
   /*
     격언
   */
 
   .quote-wisdom {
-    margin-top: 31px;
     font-size: 1.375rem;
     line-height: 1.5rem;
   }
@@ -45,11 +54,14 @@
   }
 
   /*
-    입력 폼
-  */
+  입력 폼 section
+*/
 
-  .rule-form {
+  section.rule-form {
     margin-top: 62px;
+  }
+
+  form.rule-form {
     font-size: 0.875rem;
   }
   .rule-form__input {
@@ -86,7 +98,7 @@
   }
 
   /*
-    결과가 표시되는 <section> 요소
+    결과가 표시되는 section
   */
 
   section.result {
