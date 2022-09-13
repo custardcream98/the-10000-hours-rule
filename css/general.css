@@ -81,7 +81,7 @@ a.btn-point-colored {
   input 요소에 적용할 수 있는 스타일
 */
 
-.input-white {
+.input-main-colored {
   display: inline-block;
   vertical-align: middle;
   width: 228px;
@@ -91,7 +91,7 @@ a.btn-point-colored {
   color: var(--main-color);
 }
 
-.input-white:focus {
+.input-main-colored:focus {
   /*
     실무였다면 디자이너분께
     input 요소를 눌러 텍스트를 입력할 때
@@ -100,58 +100,58 @@ a.btn-point-colored {
   outline: none;
 }
 
-.input-white::-webkit-input-placeholder {
+.input-main-colored::-webkit-input-placeholder {
   text-align: center;
   font-size: 1em;
   font-weight: 400;
   font-family: "GmarketSans";
 }
 
-.input-white::-moz-placeholder {
+.input-main-colored::-moz-placeholder {
   text-align: center;
   font-size: 1em;
   font-weight: 400;
   font-family: "GmarketSans";
 }
 
-.input-white:-ms-input-placeholder {
+.input-main-colored:-ms-input-placeholder {
   text-align: center;
   font-size: 1em;
   font-weight: 400;
   font-family: "GmarketSans";
 }
 
-.input-white::-ms-input-placeholder {
+.input-main-colored::-ms-input-placeholder {
   text-align: center;
   font-size: 1em;
   font-weight: 400;
   font-family: "GmarketSans";
 }
 
-.input-white,
-.input-white::placeholder {
+.input-main-colored,
+.input-main-colored::placeholder {
   text-align: center;
   font-size: 1em;
   font-weight: 400;
   font-family: "GmarketSans";
 }
 
-.input-white::-webkit-input-placeholder {
+.input-main-colored::-webkit-input-placeholder {
   color: var(--sub-color);
 }
 
-.input-white::-moz-placeholder {
+.input-main-colored::-moz-placeholder {
   color: var(--sub-color);
 }
 
-.input-white:-ms-input-placeholder {
+.input-main-colored:-ms-input-placeholder {
   color: var(--sub-color);
 }
 
-.input-white::-ms-input-placeholder {
+.input-main-colored::-ms-input-placeholder {
   color: var(--sub-color);
 }
 
-.input-white::placeholder {
+.input-main-colored::placeholder {
   color: var(--sub-color);
 }
