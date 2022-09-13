@@ -170,12 +170,56 @@ form.rule-form {
   outline: none;
 }
 
+.rule-form__input::-webkit-input-placeholder {
+  text-align: center;
+  font-size: 1em;
+  font-weight: 400;
+  font-family: "GmarketSans";
+}
+
+.rule-form__input::-moz-placeholder {
+  text-align: center;
+  font-size: 1em;
+  font-weight: 400;
+  font-family: "GmarketSans";
+}
+
+.rule-form__input:-ms-input-placeholder {
+  text-align: center;
+  font-size: 1em;
+  font-weight: 400;
+  font-family: "GmarketSans";
+}
+
+.rule-form__input::-ms-input-placeholder {
+  text-align: center;
+  font-size: 1em;
+  font-weight: 400;
+  font-family: "GmarketSans";
+}
+
 .rule-form__input,
 .rule-form__input::placeholder {
   text-align: center;
   font-size: 1em;
   font-weight: 400;
   font-family: "GmarketSans";
+}
+
+.rule-form__txt .rule-form__input::-webkit-input-placeholder {
+  color: var(--sub-color);
+}
+
+.rule-form__txt .rule-form__input::-moz-placeholder {
+  color: var(--sub-color);
+}
+
+.rule-form__txt .rule-form__input:-ms-input-placeholder {
+  color: var(--sub-color);
+}
+
+.rule-form__txt .rule-form__input::-ms-input-placeholder {
+  color: var(--sub-color);
 }
 
 .rule-form__txt .rule-form__input::placeholder {
@@ -286,12 +330,16 @@ footer small.txt-footer {
   padding-top: 76px;
   padding-bottom: 68px;
   border-radius: 30px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   text-align: center;
   color: var(--main-color);
   background-color: var(--second-main-color);
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-  transform: translateX(-50%) translateY(-50%);
+  -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+      -ms-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
 }
 
 .cheerup-modal .btn-point-colored {
@@ -327,12 +375,30 @@ footer small.txt-footer {
   자세한 로직은 10000hours.js에 적었습니다.
 */
 
+@-webkit-keyframes modalOpen {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @keyframes modalOpen {
   0% {
     opacity: 0;
   }
   100% {
     opacity: 1;
+  }
+}
+
+@-webkit-keyframes modalClose {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
@@ -372,7 +438,8 @@ footer small.txt-footer {
 
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  animation: modalClose 0.4s;
+  -webkit-animation: modalClose 0.4s;
+          animation: modalClose 0.4s;
 }
 
 .cheerup-modal__wrapper.activated {
@@ -380,5 +447,6 @@ footer small.txt-footer {
     .activated class를 부여하거나 삭제해서
     애니메이션을 trigger합니다.
   */
-  animation: modalOpen 0.4s;
+  -webkit-animation: modalOpen 0.4s;
+          animation: modalOpen 0.4s;
 }
