@@ -4,8 +4,12 @@
 @import url("font.css");
 
 /*
-  모바일과 PC 스타일 코드를 분리했습니다.
-  모바일 스타일은 mobile.css에서 확인할 수 있습니다.
+  reset.css: 스타일 리셋
+  tools.css: 자주 쓰이는 property-value들 (ex: margin: 0 auto;)
+  general.css: 재사용성이 높은 스타일들 (ex: 버튼 스타일)
+  font.css: 웹폰트 로드
+
+  mobile.css: 모바일용 스타일 (HTML에서 따로 불러옵니다)
 */
 
 /*
