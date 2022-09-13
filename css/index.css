@@ -151,79 +151,11 @@ form.rule-form {
 }
 
 .rule-form__input {
-  display: inline-block;
-  vertical-align: middle;
-  width: 228px;
-  height: 57px;
-  margin: 0 17px;
-  border: none;
-  border-radius: 7px;
-  color: var(--main-color);
-}
-
-.rule-form__input:focus {
   /*
-    실무였다면 디자이너분께
-    input 요소를 눌러 텍스트를 입력할 때
-    추가적인 디자인은 없는지 여쭤봤을 것 같습니다.
+    input 요소를 사용할 때 스타일을 재사용이 가능하도록
+    나머지 스타일링은 general.css에 넣었습니다.
   */
-  outline: none;
-}
-
-.rule-form__input::-webkit-input-placeholder {
-  text-align: center;
-  font-size: 1em;
-  font-weight: 400;
-  font-family: "GmarketSans";
-}
-
-.rule-form__input::-moz-placeholder {
-  text-align: center;
-  font-size: 1em;
-  font-weight: 400;
-  font-family: "GmarketSans";
-}
-
-.rule-form__input:-ms-input-placeholder {
-  text-align: center;
-  font-size: 1em;
-  font-weight: 400;
-  font-family: "GmarketSans";
-}
-
-.rule-form__input::-ms-input-placeholder {
-  text-align: center;
-  font-size: 1em;
-  font-weight: 400;
-  font-family: "GmarketSans";
-}
-
-.rule-form__input,
-.rule-form__input::placeholder {
-  text-align: center;
-  font-size: 1em;
-  font-weight: 400;
-  font-family: "GmarketSans";
-}
-
-.rule-form__txt .rule-form__input::-webkit-input-placeholder {
-  color: var(--sub-color);
-}
-
-.rule-form__txt .rule-form__input::-moz-placeholder {
-  color: var(--sub-color);
-}
-
-.rule-form__txt .rule-form__input:-ms-input-placeholder {
-  color: var(--sub-color);
-}
-
-.rule-form__txt .rule-form__input::-ms-input-placeholder {
-  color: var(--sub-color);
-}
-
-.rule-form__txt .rule-form__input::placeholder {
-  color: var(--sub-color);
+  margin: 0 17px;
 }
 
 /*
@@ -331,15 +263,15 @@ footer small.txt-footer {
   padding-bottom: 68px;
   border-radius: 30px;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   text-align: center;
   color: var(--main-color);
   background-color: var(--second-main-color);
   -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-          box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
   -webkit-transform: translateX(-50%) translateY(-50%);
-      -ms-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
 }
 
 .cheerup-modal .btn-point-colored {
@@ -439,7 +371,7 @@ footer small.txt-footer {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   -webkit-animation: modalClose 0.4s;
-          animation: modalClose 0.4s;
+  animation: modalClose 0.4s;
 }
 
 .cheerup-modal__wrapper.activated {
@@ -448,5 +380,5 @@ footer small.txt-footer {
     애니메이션을 trigger합니다.
   */
   -webkit-animation: modalOpen 0.4s;
-          animation: modalOpen 0.4s;
+  animation: modalOpen 0.4s;
 }
