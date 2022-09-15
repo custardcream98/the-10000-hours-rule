@@ -9,22 +9,23 @@
 */
 
 /**
- * 클래스 이름들로 요소 Ref 를 반환하는 함수
- * @param {string} classNames
- * @returns {HTMLCollectionOf<Element>} 요소 Collection
+ * Selector로 요소 Ref 를 반환하는 함수
+ * @param {string} selector
+ * @returns {Element}
  */
-const getByClass = (classNames) => document.getElementsByClassName(classNames);
+const getBySelector = (selector) => document.querySelector(selector);
 
-const $ruleForm = getByClass("rule-form-js")[0];
-const $inputTarget = getByClass("rule-form__input-target-js")[0];
-const $inputHours = getByClass("rule-form__input-hours-js")[0];
-const $resultTarget = getByClass("result__target-js")[0];
-const $resultDays = getByClass("result__days-js")[0];
+const $ruleForm = getBySelector(".rule-form-js");
+const $inputTarget = getBySelector(".rule-form__input-target-js");
+const $inputHours = getBySelector(".rule-form__input-hours-js");
+const $resultSection = getBySelector("section.result-js");
+const $resultTarget = getBySelector(".result__target-js");
+const $resultDays = getBySelector(".result__days-js");
 
-const $shareBtn = getByClass("share-link")[0];
+const $shareBtn = getBySelector(".share-link-js");
 
-const $modalOpenerBtn = getByClass("cheerup-modal__opener-js")[0];
-const $modalWrapper = getByClass("cheerup-modal__wrapper-js")[0];
+const $modalOpenerBtn = getBySelector(".cheerup-modal__opener-js");
+const $modalWrapper = getBySelector(".cheerup-modal__wrapper-js");
 
 $ruleForm.addEventListener("submit", getAndShowResults);
 
@@ -44,8 +45,27 @@ $modalWrapper.addEventListener("touchmove", preventScroll, {
   추후 보완사항으로 우선은 남겨뒀습니다.
 */
 
-$modalOpenerBtn.addEventListener("click", openModal);
-$modalWrapper.addEventListener("click", closeModal);
+/**
+ * 모달 창을 열거나 닫는 함수
+ * @returns {none}
+ */
+const toggleModalActivation = () => toggleActivation($modalWrapper);
+
+$modalOpenerBtn.addEventListener("click", toggleModalActivation);
+$modalWrapper.addEventListener("click", toggleModalActivation);
+
+/**
+ * `.activated` / `.deactivated` class 토글
+ * @param {Element} element
+ */
+function toggleActivation(element) {
+  const state = element.classList.contains("activated");
+  const classToRemove = state ? "activated" : "deactivated";
+  const classToAdd = state ? "deactivated" : "activated";
+
+  element.classList.remove(classToRemove);
+  element.classList.add(classToAdd);
+}
 
 /**
  * 입력값이 들어오는 `<form>` 요소의
@@ -58,15 +78,25 @@ function getAndShowResults(event) {
   // 각 입력값을 불러옵니다.
   // 시간은 float으로 형변환합니다.
 
-  // form에서 유효성검사를 해서 오므로
-  // 각 값에 대해 JS에서 추가로 검사할 필요는 없습니다.
+  /* 유효성 검사 */
+  if (targetVal === "" || hoursVal === NaN) {
+    return;
+  }
 
   // 결과가 들어갈 곳을 채웁니다.
   $resultTarget.textContent = targetVal;
   $resultDays.textContent = calDaysForTarget(hoursVal);
 
+  // 가려져 있던 결과 section을 보여줍니다.
+  if ($resultSection.classList.contains("deactivated"))
+    toggleActivation($resultSection);
+
   // 결과로 자동 스크롤
   $resultTarget.scrollIntoView({ behavior: "smooth" });
+
+  // input의 입력값을 초기화합니다.
+  $inputTarget.value = "";
+  $inputHours.value = "";
 
   // default action의 작동을 막습니다.
   event.preventDefault();
@@ -108,36 +138,4 @@ function preventScroll(event) {
   event.preventDefault();
   event.stopPropagation();
   return false;
-}
-
-/**
- * modal 창을 여는 함수
- */
-function openModal() {
-  /*
-    먼저 display: none; 이던 wrapper에
-    display: block;을 부여해 보이도록 합니다.
-  */
-  $modalWrapper.style.display = "block";
-
-  /*
-    activated class를 부여해서 animation을 트리거합니다.
-  */
-  $modalWrapper.classList.add("activated");
-}
-
-/**
- * modal 창을 닫는 함수
- */
-function closeModal() {
-  /*
-    activated class를 삭제해서 animation을 트리거합니다.
-  */
-  $modalWrapper.classList.remove("activated");
-
-  /*
-    400ms만큼의 애니메이션이 끝나면
-    display: none;을 다시 부여해 가립니다.
-  */
-  setTimeout(() => ($modalWrapper.style.display = "none"), 400);
 }

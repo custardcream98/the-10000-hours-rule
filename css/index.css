@@ -163,17 +163,19 @@ form.rule-form {
 }
 
 /*
-  입력 form 바로 밑의 클릭 아이콘과 버튼
+  입력 form 바로 밑의 버튼
 */
 
-.rule-form__btn-wrapper {
+.rule-form__btn {
   margin-top: 115px;
+  position: relative;
 }
 
-.rule-form__btn-wrapper .click-icon {
+.rule-form__btn::after {
+  content: url(../img/click.png);
   position: absolute;
-  margin-left: 7px;
-  margin-top: 14px;
+  left: calc(100% + 7px);
+  top: 14px;
 }
 
 /*
@@ -182,7 +184,6 @@ form.rule-form {
 
 section.result {
   margin-top: 147px;
-  margin-bottom: 130px;
   font-size: 1.5rem;
   line-height: 2;
   /* line-height를 크게 줘서 결과값이 result__txt의 max-width보다 커질 때 각 줄간의 공백을 줍니다. */
@@ -205,12 +206,9 @@ section.result {
   line-height: 1;
 
   /* 
-    Inline element인 <strong>의
-    baseline을 middle로 줌으로써
-    다른 Text node들과 수직으로
-    가운데 정렬이 되도록 합니다.
+    최대한 가운데에 가까운 값
   */
-  vertical-align: middle;
+  vertical-align: -0.235em;
 }
 
 section.result div:last-child {
@@ -231,6 +229,11 @@ section.result div:last-child {
   footer 영역
 */
 
+footer {
+  margin-top: 130px;
+  margin-bottom: 70px;
+}
+
 footer small.txt-footer {
   display: block;
   /*
@@ -238,7 +241,6 @@ footer small.txt-footer {
     text-align: center;를 줘 텍스트를 가운데 정렬합니다.
   */
   margin-top: 20px;
-  margin-bottom: 70px;
   text-align: center;
   font-size: 0.75rem;
   font-family: "Noto Sans KR";
@@ -306,48 +308,6 @@ footer small.txt-footer {
 }
 
 /*
-  modal 작동 관련 애니메이션
-
-  자세한 로직은 10000hours.js에 적었습니다.
-*/
-
-@-webkit-keyframes modalOpen {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes modalOpen {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes modalClose {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes modalClose {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-/*
   modal을 감싸는 wrapper div 요소,
   클릭되면 modal을 닫거나
   backdrop-filter: blur()를 줘서 뒷배경 초점을
@@ -355,12 +315,6 @@ footer small.txt-footer {
 */
 
 .cheerup-modal__wrapper {
-  /*
-    페이지가 처음 로드될 때 modal이 보이지 않도록
-    display:none;을 부여합니다.
-  */
-  display: none;
-
   /*
     wrapper는 모든 다른 요소 위에 위치해야 하므로
     position property를 fixed로 지정합니다.
@@ -374,15 +328,4 @@ footer small.txt-footer {
 
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  -webkit-animation: modalClose 0.4s;
-  animation: modalClose 0.4s;
-}
-
-.cheerup-modal__wrapper.activated {
-  /*
-    .activated class를 부여하거나 삭제해서
-    애니메이션을 trigger합니다.
-  */
-  -webkit-animation: modalOpen 0.4s;
-  animation: modalOpen 0.4s;
 }

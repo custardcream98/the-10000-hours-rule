@@ -54,8 +54,8 @@
   }
 
   /*
-  입력 폼 section
-*/
+    입력 폼 section
+  */
 
   section.rule-form {
     margin-top: 62px;
@@ -86,11 +86,19 @@
   입력 form 바로 밑의 클릭 아이콘과 버튼
   */
 
-  .rule-form__btn-wrapper {
+  .rule-form__btn {
     margin-top: 49px;
     margin-left: 56px;
     margin-right: 63px;
   }
+
+  .rule-form__btn::after {
+    content: url(../img/click_mobile.png);
+    position: absolute;
+    left: calc(100% + 6px);
+    top: 30px;
+  }
+
   .rule-form__btn-wrapper .click-icon {
     position: absolute;
     margin-left: 6px;
@@ -103,7 +111,6 @@
 
   section.result {
     margin-top: 64px;
-    margin-bottom: 83px;
     font-size: 0.875rem;
   }
   .result__txt {
@@ -125,9 +132,13 @@
     footer 영역
   */
 
+  footer {
+    margin-top: 83px;
+    margin-bottom: 32px;
+  }
+
   footer small.txt-footer {
     margin-top: 20px;
-    margin-bottom: 32px;
     font-size: 0.5625rem;
     line-height: 0.8125rem;
     color: rgba(255, 255, 255, 0.7);
