@@ -112,6 +112,16 @@ function calDaysForTarget(hoursPerDay) {
 }
 
 /**
+ * modal 배경 스크롤을 방지하기 위한 함수
+ * @param {Event} event
+ */
+function preventScroll(event) {
+  event.preventDefault();
+  event.stopPropagation();
+  return false;
+}
+
+/**
  * 공유할 링크를
  * 사용자의 클립보드에 복사하는 함수
  *
@@ -128,14 +138,4 @@ async function copyShareLink(event) {
   await navigator.clipboard.writeText(link);
 
   window.alert("🙌 링크가 복사됐습니다 🙌\n친구에게 공유해보세요 😁👍");
-}
-
-/**
- * modal 배경 스크롤을 방지하기 위한 함수
- * @param {Event} event
- */
-function preventScroll(event) {
-  event.preventDefault();
-  event.stopPropagation();
-  return false;
 }
