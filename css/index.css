@@ -315,13 +315,6 @@ footer small.txt-footer {
 */
 
 .cheerup-modal__wrapper {
-  /*
-    wrapper는 모든 다른 요소 위에 위치해야 하므로
-    position property를 fixed로 지정합니다.
-  */
-  position: fixed;
-  top: 0;
-
   /* Viewport 꽉 차게 만듭니다. */
   width: 100vw;
   height: 100vh;

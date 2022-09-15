@@ -45,3 +45,12 @@
 .activated {
   opacity: 1;
 }
+
+.cheerup-modal__wrapper.activated {
+  /*
+    wrapper는 모든 다른 요소 위에 위치해야 하므로
+    position property를 fixed로 지정합니다.
+  */
+  position: fixed;
+  top: 0;
+}
