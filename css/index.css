@@ -84,7 +84,6 @@ h1.title .title__img {
   top: 76.5px;
   left: 0;
   right: 0;
-  bottom: 0;
   width: 564px;
   height: 112px;
 }
@@ -116,15 +115,22 @@ section.quote-and-dfn {
 */
 
 p.rule-definition {
-  width: 493px;
-  height: 85px;
+  position: relative;
   margin-top: 78px;
   font-size: 1.125rem;
   line-height: 1.9375rem;
-  background-image: url("../img/quotes.png");
-  background-repeat: no-repeat;
-  background-position: center top 13px;
-  background-size: contain;
+}
+
+p.rule-definition::after {
+  content: " ";
+  position: absolute;
+  top: 13px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 486px;
+  height: 32px;
+  background: url("../img/sprites_pc.png") -10px -10px;
 }
 
 p.rule-definition dfn {
@@ -172,10 +178,13 @@ form.rule-form {
 }
 
 .rule-form__btn::after {
-  content: url(../img/click.png);
+  content: " ";
   position: absolute;
   left: calc(100% + 7px);
   top: 14px;
+  width: 64px;
+  height: 72px;
+  background: url(../img/sprites_pc.png) -10px -62px;
 }
 
 /*
@@ -232,6 +241,15 @@ section.result div:last-child {
 footer {
   margin-top: 130px;
   margin-bottom: 70px;
+}
+
+footer::before {
+  content: " ";
+  display: block;
+  width: 125px;
+  height: 25px;
+  margin: auto;
+  background: url("../img/sprites_pc.png") -94px -62px;
 }
 
 footer small.txt-footer {
@@ -296,12 +314,7 @@ footer small.txt-footer {
   line-height: 6.625rem;
 }
 
-.cheerup-modal .cheerup-modal__txt span:not(.hide-mobile) {
-  /*
-    줄바꿈이 필요한 "당신의 꿈을 응원합니다" span 요소에 display:block;을 부여합니다.
-    모바일에서는 보이지 않아야 하는 하트 부분을 묶은 span 요소는 무시할 수 있도록
-    not pesudo class를 이용합니다.
-  */
+.cheerup-modal .cheerup-modal__txt > span {
   display: block;
   margin-top: 4px;
   line-height: 2.5rem;

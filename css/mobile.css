@@ -36,7 +36,7 @@
     1만 시간의 법칙 정의
   */
 
-  p.rule-definition {
+  /* p.rule-definition {
     width: 298px;
     height: 72px;
     margin-top: 62px;
@@ -45,9 +45,28 @@
     /*
       모바일일 경우 background-image를 변경합니다.
     */
-    background-image: url("../img/quotes_mobile.png");
+  /* background-image: url("../img/quotes_mobile.png");
     background-position: center top 24px;
+  }  */
+
+  p.rule-definition {
+    margin-top: 62px;
+    font-size: 0.875rem;
+    line-height: 1.5rem;
   }
+
+  p.rule-definition::after {
+    content: " ";
+    position: absolute;
+    top: 24px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 298px;
+    height: 17px;
+    background: url(../img/sprites_mobile.png) -10px -10px;
+  }
+
   p.rule-definition dfn {
     font-size: 1rem;
     line-height: 1rem;
@@ -93,10 +112,11 @@
   }
 
   .rule-form__btn::after {
-    content: url(../img/click_mobile.png);
-    position: absolute;
     left: calc(100% + 6px);
     top: 30px;
+    width: 43px;
+    height: 48px;
+    background: url(../img/sprites_mobile.png) -10px -47px;
   }
 
   .rule-form__btn-wrapper .click-icon {
@@ -123,6 +143,7 @@
   .result__txt strong {
     margin: 0 8px;
     font-size: 1.5rem;
+    vertical-align: -0.12em;
   }
   section.result div:last-child {
     margin-top: 55px;
@@ -135,6 +156,12 @@
   footer {
     margin-top: 83px;
     margin-bottom: 32px;
+  }
+
+  footer::before {
+    width: 91px;
+    height: 18px;
+    background: url("../img/sprites_mobile.png") -73px -47px;
   }
 
   footer small.txt-footer {

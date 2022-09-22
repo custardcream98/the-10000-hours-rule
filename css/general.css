@@ -50,7 +50,10 @@ a.btn-point-colored {
   .btn-squared-mobile {
     border-radius: 13px;
     padding: 19px 36.5px 17px 36.5px;
-    line-height: 1rem;
+    /* line-height: 0.875rem; */
+    /* figma에서는 14px이라고 돼있지만
+    육안으로 보기에 너무 많이 차이나서
+    최대한 비슷해보이는 값 사용 */
   }
   .btn-squared-mobile span {
     display: block;
